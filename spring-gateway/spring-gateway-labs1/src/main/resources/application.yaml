@@ -1,0 +1,19 @@
+server:
+  port: 80
+spring:
+  cloud:
+    #Spring Cloud Gateway 配置项，对应GatewayProperties类
+    gateway:
+      routes:    # 路由配置项，对应RouteDefinition
+        - id: llhy # 路由编号
+          uri: http://www.baidu.com.cn # 路由到的目标地址
+          predicates: # 断言，作为路由的匹配条件，对应RouteDefinition 数组
+            - Path=/test
+          filters: # 过滤器，对请求进行拦截，实现自定义的功能，对应 FilterDefinition 数组
+            - StripPrefix = 1
+        - id: oschina # 路由的编号
+            uri: https://www.oschina.net # 路由的目标地址
+            predicates: # 断言，作为路由的匹配条件，对应 RouteDefinition 数组
+              - Path=/oschina
+            filters: # 过滤器，对请求进行拦截，实现自定义的功能，对应 FilterDefinition 数组
+              - StripPrefix=1
