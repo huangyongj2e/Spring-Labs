@@ -13,6 +13,14 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-gateway-labs1</module>
+        <module>spring-gateway-labs2</module>
+        <module>spring-gateway-user-service</module>
+        <module>spring-gateway-labs-Apollo</module>
+        <module>spring-gateway-labs-config-nacos</module>
+        <module>spring-gateway-labs3</module>
+        <module>spring-gateway-labs4-filter</module>
+        <module>spring-gateway-labs5-limiter</module>
+        <module>spring-gateway-labs6-Sentinel</module>
     </modules>
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -57,6 +65,11 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+        <!-- 引入 Spring Cloud Alibaba Nacos Discovery 相关依赖，将 Nacos 作为注册中心，并实现对其的自动配置 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
     </dependencies>
 </project>

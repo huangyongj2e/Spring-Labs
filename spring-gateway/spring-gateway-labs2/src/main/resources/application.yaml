@@ -19,3 +19,13 @@ spring:
             - Path=/test
           #filters: # 过滤器，对请求进行拦截，实现自定义的功能，对应 FilterDefinition 数组  这里配置的 StripPrefix 会将请求的 Path 去除掉前缀
           #  - StripPrefix=1
+      discovery:  # 与spring cloud 注册中心集成，对应DiscoveryLocatorProperties 类
+        locator:
+          enabled: true # 是否开启，默认为false关闭
+          # lb:// 前缀，表示将请求负载均衡转发到对应的服务的实例。
+          # "'lb://' + serviceId" Spring EL 表达式，将从注册中心获得到的服务列表，每一个服务的名字对应 serviceId，最终使用 Spring EL 表达式进行格式化。
+          url-expression: "'lb://' + serviceId" # 路由的目标地址的表达式，默认为 "'lb://' + serviceId"
+    # Nacos 作为注册中心的配置项
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848 # Nacos 服务器地址
